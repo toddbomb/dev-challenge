@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Search from './components/Search'
 import axios from 'axios';
@@ -29,10 +27,6 @@ function App() {
       const data = response.data.collection.items.map((image) => {
         return image.links[0].href; 
       });
-      // const test1 = data.map((links) => {
-      //   return links[0].href;
-      // });
-      // console.log(test1);
       console.log(data);
       return data;
     } catch (error) {
@@ -40,11 +34,11 @@ function App() {
     }
   }
 
-  const fetchUnsplashImages = async (searchTerm) => {
+  const fetchUnsplashImages = async (searchTerm, api_key) => {
     try {
       const response = await axios.get('https://api.unsplash.com/search/photos', {
         params: {
-          client_id: "email me for this",
+          client_id: "Unsplash API key from email",
           query: searchTerm,
           per_page: 20
         }
